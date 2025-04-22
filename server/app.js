@@ -4,6 +4,8 @@ import cors from 'cors';
 import connectDB from './config/connect.js';
 import { PORT } from './config/config.js';
 import userRouter from './routes/user.js'
+import BusRouter from './routes/bus.js'
+import TicketRouter from './routes/ticket.js'
 
 dotenv.config();
 
@@ -18,7 +20,9 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json());
 
-app.use("/user", userRouter)
+app.use("/user", userRouter);
+app.use("/bus", BusRouter);
+app.use("/ticket", TicketRouter);
 
 const start = async () => {{
     try {

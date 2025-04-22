@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const SeatSchema = new Schema({
   seat_id: { type: Number, required: true },
