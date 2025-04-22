@@ -10,15 +10,6 @@ export const locations = [
   "Hyderabad",
   "Sialkot",
   "Bahawalpur",
-  "Sargodha",
-  "Gujranwala",
-  "Abbottabad",
-  "Mardan",
-  "Sukkur",
-  "Mirpur",
-  "Muzaffarabad",
-  "Rahim Yar Khan",
-  "Dera Ghazi Khan",
 ];
 
 export const buses = [
