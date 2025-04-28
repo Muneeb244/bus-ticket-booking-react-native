@@ -2,6 +2,7 @@ import {View, Text, Alert, TouchableOpacity, Image} from 'react-native';
 import React, {useState} from 'react';
 import {navigate} from '../../utils/NavigationUtils';
 import LinearGradient from 'react-native-linear-gradient';
+import { CalendarDaysIcon } from 'react-native-heroicons/solid';
 
 const Search = () => {
   const [from, setFrom] = useState<string | null>(null);
@@ -70,6 +71,53 @@ const Search = () => {
                 {from || 'From'}
               </Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              className="p-4 flex-row gap-4 items-center"
+              onPress={() => {
+                setLocationType('to');
+                setShowLocationPicker(true);
+              }}>
+              <Image
+                className="h-6 w-6 "
+                source={require('../../assets/images/bus.png')}
+              />
+              <Text className="w-[90%] text-lg font-okra text-gray-700">
+                {to || 'to'}
+              </Text>
+            </TouchableOpacity>
+
+            <View className="flex-row items-center p-2 justify-between">
+              <View className="flex-row items-center">
+                <TouchableOpacity
+                  className="p-2 mr-2 rounded-lg  bg-secondary"
+                  onPress={() => setDate(new Date())}>
+                  <Text className="font-bold text-sm font-okra">Today</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  className="p-2 mr-2 rounded-lg bg-secondary"
+                  onPress={() => {
+                    const tomorrow = new Date();
+                    tomorrow.setDate(tomorrow.getDate() + 1);
+                    setDate(tomorrow);
+                  }}>
+                  <Text className="font-bold text-sm font-okra">Tomorrow</Text>
+                </TouchableOpacity>
+              </View>
+
+              <TouchableOpacity
+                className="flex-row items-center"
+                onPress={() => setShowDatePicker(true)}>
+                <View className='mr-3 '>
+                  <Text className="text-sm font-normal font-okra text-gray-500">
+                    Date of Journey
+                  </Text>
+                  <Text className="text-md font-bold font-okra text-gray-900">
+                    {date?.toDateString()}
+                  </Text>
+                </View>
+                <CalendarDaysIcon color={'black'} size={25} />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </LinearGradient>

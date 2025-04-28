@@ -38,7 +38,7 @@ const SplashScreen = () => {
       return;
     }
 
-    resetAndNavigate('login');
+    resetAndNavigate('home');
   };
 
   useEffect(() => {

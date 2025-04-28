@@ -12,6 +12,7 @@ export const fetchBuseDetails = async (busId: string) => {
 
 export const fetchUserTickets = async () => {
   const {data} = await apiClient.get('/ticket/my-tickets');
+  console.log(data)
   return data?.tickets;
 };
 
