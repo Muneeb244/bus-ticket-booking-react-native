@@ -1,8 +1,7 @@
-import './global.css';
-import {StyleSheet, Text, View} from 'react-native';
+import { QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
+import './global.css';
 import Navigation from './src/navigation/Navigation';
-import {QueryClientProvider} from '@tanstack/react-query';
 import { queryClient } from './src/service/queryClient';
 
 const App = () => {

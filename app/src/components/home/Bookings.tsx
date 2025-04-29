@@ -23,6 +23,7 @@ const Bookings = () => {
     isLoading,
     isError,
     refetch,
+    error,
   } = useQuery({
     queryKey: ['userTickets'],
     queryFn: fetchUserTickets,
@@ -78,12 +79,12 @@ const Bookings = () => {
             <Text className="texr-2xl font-bold my-4">Past Bookings</Text>
 
             <View className="flex-row mb-4">
-              {tabs?.map(tab => {
+              {tabs?.map(tab => (
                 <TouchableOpacity
                   key={tab}
                   onPress={() => setSelectedTab(tab)}
                   className={`px-4 py-2 rounded-lg mx-1 ${
-                    selectedTab === tab ? 'bg-red-500' : 'bg-grey-300'
+                    selectedTab === tab ? 'bg-red-500' : 'bg-gray-300'
                   } `}>
                   <Text
                     className={`text-sm font-bold ${
@@ -91,8 +92,8 @@ const Bookings = () => {
                     }`}>
                     {tab}
                   </Text>
-                </TouchableOpacity>;
-              })}
+                </TouchableOpacity>
+              ))}
             </View>
           </>
         }

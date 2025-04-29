@@ -1,8 +1,12 @@
 import {View, Text, Alert, TouchableOpacity, Image} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {navigate} from '../../utils/NavigationUtils';
 import LinearGradient from 'react-native-linear-gradient';
-import { CalendarDaysIcon } from 'react-native-heroicons/solid';
+import {
+  CalendarDaysIcon,
+  MagnifyingGlassIcon,
+} from 'react-native-heroicons/solid';
+import DatePickerModal from '../ui/DatePickerModal';
 
 const Search = () => {
   const [from, setFrom] = useState<string | null>(null);
@@ -72,7 +76,7 @@ const Search = () => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              className="p-4 flex-row gap-4 items-center"
+              className="p-4 flex-row gap-4 items-center border-t-[1px] border-b-[1px] border-gray-400"
               onPress={() => {
                 setLocationType('to');
                 setShowLocationPicker(true);
@@ -107,7 +111,7 @@ const Search = () => {
               <TouchableOpacity
                 className="flex-row items-center"
                 onPress={() => setShowDatePicker(true)}>
-                <View className='mr-3 '>
+                <View className="mr-3 ">
                   <Text className="text-sm font-normal font-okra text-gray-500">
                     Date of Journey
                   </Text>
@@ -119,8 +123,30 @@ const Search = () => {
               </TouchableOpacity>
             </View>
           </View>
+          <TouchableOpacity
+            onPress={handleSearchBuses}
+            className="bg-tertiary p-3 rounded-xl my-2 flex-row items-center justify-center gap-2">
+            <MagnifyingGlassIcon color={'#fff'} size={22} />
+            <Text className="font-okra font-bold text-white text-lg">
+              Search Buses
+            </Text>
+          </TouchableOpacity>
+
+          <Image
+            source={require('../../assets/images/sidebus.jpg')}
+            className="h-40 rounded-lg my-4 w-full"
+          />
         </View>
       </LinearGradient>
+
+      {showDatePicker && (
+        <DatePickerModal
+          visible={showDatePicker}
+          onClose={() => setShowDatePicker(false)}
+          onConfirm={setDate}
+          selectedDate={date}
+        />
+      )}
     </View>
   );
 };
