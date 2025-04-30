@@ -19,7 +19,6 @@ const SplashScreen = () => {
   const tokenCheck = async () => {
     const accessToken = getAccessToken();
     const refreshToken = getRefreshToken() as string;
-    console.log(accessToken, refreshToken);
 
     if (accessToken) {
       const decodedAccessToken = jwtDecode<DecodedToken>(accessToken);
@@ -56,24 +55,24 @@ const SplashScreen = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const login = async () => {
-    console.log('I am here');
-    try {
-      const {data} = await axios.post('http://10.0.2.2:4000/user/login', {
-        email: 'muneeb-b@gmail.com',
-        password: '87j9283j9',
-      });
-      console.log('Reponse from login', data, data.accessToken, data.refreshToken);
-      setAccessToken(data.accessToken);
-      setRefreshToken(data.refreshToken);
-    } catch (error) {
-      console.log('Error spalsh', error);
-    }
-  };
+  // const login = async () => {
 
-  useEffect(() => {
-    login();
-  }, []);
+  //   try {
+  //     const {data} = await axios.post('http://10.0.2.2:4000/user/login', {
+  //       email: 'muneeb-b@gmail.com',
+  //       password: '87j9283j9',
+  //     });
+  //     console.log('Reponse from login', data, data.accessToken, data.refreshToken);
+  //     setAccessToken(data.accessToken);
+  //     setRefreshToken(data.refreshToken);
+  //   } catch (error) {
+  //     console.log('Error spalsh', error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   login();
+  // }, []);
 
   return (
     <View className="flex-1 justify-center bg-white items-center">

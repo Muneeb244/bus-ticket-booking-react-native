@@ -7,6 +7,7 @@ import {
   MagnifyingGlassIcon,
 } from 'react-native-heroicons/solid';
 import DatePickerModal from '../ui/DatePickerModal';
+import LocationPickerModal from '../ui/LocationPickerModal';
 
 const Search = () => {
   const [from, setFrom] = useState<string | null>(null);
@@ -145,6 +146,16 @@ const Search = () => {
           onClose={() => setShowDatePicker(false)}
           onConfirm={setDate}
           selectedDate={date}
+        />
+      )}
+
+      {showLocationPicker && (
+        <LocationPickerModal
+          visible={showLocationPicker}
+          onClose={() => setShowLocationPicker(false)}
+          onSelect={handleLocationSet}
+          type={locationType}
+          fromLocation={from || undefined}
         />
       )}
     </View>
