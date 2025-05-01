@@ -19,7 +19,9 @@ const TicketModal: React.FC<TicketModalProps> = ({
       <View
         className="flex-1 justify-center items-center"
         style={{backgroundColor: '#2A2526'}}>
-        <TouchableOpacity className="bg-white mb-5 shadow-sm p-1 rounded-full">
+        <TouchableOpacity
+          className="bg-white mb-5 shadow-sm p-1 rounded-full"
+          onPress={onClose}>
           <XMarkIcon color={'black'} size={22} />
         </TouchableOpacity>
         <View className="bg-white overflow-hidden rounded-xl w-[90%] p-4 shadow-lg relative">
