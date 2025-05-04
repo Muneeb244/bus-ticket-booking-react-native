@@ -44,19 +44,6 @@ cd ../frontend
 npm install
 npm start
 
-## Folder Structure
-/backend
-  ├── controllers
-  ├── models
-  ├── routes
-  ├── utils
-  └── index.js
-
-/frontend
-  ├── components
-  ├── pages
-  ├── api
-  └── App.js
   
 ## Authentication Flow
 Uses Access Tokens (short-lived) and Refresh Tokens (long-lived)
